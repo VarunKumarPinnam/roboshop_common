@@ -9,6 +9,7 @@ Y="\e[33m"
 N="\e[0m"
 START_TIME=$(date +%s)
 MONGODB_HOST=mongodb.advidevops.online
+MYSQL=mysql.advidevops.online
 
 #--Log Directory---
     mkdir -p $LOGS_DIRECTORY
@@ -46,8 +47,19 @@ nodejs_setup(){
 
 }
 
-app_setup(){
+java_setup(){
+    dnf install maven -y &>>$LOGS_FILE
+    validation $? "maven installed"
 
+    cd /app
+    mvn clean package &>>$LOGS_FILE
+    validation $? "installing dependencies" 
+
+    mv target/$app_name-1.0.jar $app_name.jar 
+    VALIDATE $? "Moving and Renaming $app_name"
+}
+
+app_setup(){
 #..creating system user
     id roboshop &>>$LOGS_FILE
 
