@@ -19,7 +19,12 @@ validation $? "installing mongodb"
 
 INDEX=$(mongosh --host $MONGODB_HOST  --quiet  --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 
-if [ "$INDEX" -le 0 ]; then 
+if [ $? -ne 0 ]; then
+    echo -e "$R MongoDB is NOT connected. Cannot load data. Exiting... $N"
+    exit 1
+fi
+
+if [ $INDEX -le 0 ]; then 
    mongosh --host $MONGODB_HOST </app/db/master-data.js &>>$LOGS_FILE
    validation $? "loading products"
 else
