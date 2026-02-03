@@ -13,7 +13,7 @@ systemd_setup
 dnf install mysql -y &>>$LOGS_FILE
 validation $? "mysql client is installed"
 
-mysql -h $MYSQL -uroot -pRoboShop@1 -e "use cities"
+mysql -h $MYSQL -uroot -pRoboShop@1 -e 'use cities'
 
 if [ $? -ne 0 ];then
     mysql -h $MYSQL -uroot -pRoboShop@1 < /app/db/schema.sql
