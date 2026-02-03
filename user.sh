@@ -9,3 +9,4 @@ app_setup
 nodejs_setup
 systemd_setup
 app_restart
+total_execution_time

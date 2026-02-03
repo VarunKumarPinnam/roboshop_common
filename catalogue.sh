@@ -32,3 +32,5 @@ else
 fi
 
 app_restart
+
+total_execution_time

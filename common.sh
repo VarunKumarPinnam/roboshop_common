@@ -53,7 +53,7 @@ app_setup(){
 
     if [ $? -ne 0 ]; then 
         useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
-        echo -e "User roboshop has been created"
+        echo -e "$Y User roboshop has been created $N"
     else 
         echo -e  "$Y User already exists, skipping this step $N"
     fi
