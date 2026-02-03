@@ -12,7 +12,7 @@ MONGODB_HOST=mongodb.advidevops.online
 
 #--Log Directory---
     mkdir -p $LOGS_DIRECTORY
-echo "Script started executing at : $(date '+%Y-%m-%d %H:%M:%S')" | tee -a $LOGS_FILE
+echo " $Y Script started executing at : $(date '+%Y-%m-%d %H:%M:%S')" $N | tee -a $LOGS_FILE
 
 #--ROOT User Check--
 check_root(){
@@ -81,7 +81,7 @@ app_setup(){
 systemd_setup(){
 
     cp $SHELL_DIR/$app_name.service /etc/systemd/system/$app_name.service &>>$LOGS_FILE
-    validation $? " $app_name service has been updated"
+    validation $? "$app_name service updated"
 
     systemctl daemon-reload 
     validation $? "system daemon reloaded"
