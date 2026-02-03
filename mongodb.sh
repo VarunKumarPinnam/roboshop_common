@@ -19,7 +19,7 @@ validation $? "start mongo db"
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 validation $? "allowing remote connections"
 
-systemctl restart mongod &>> $LOGS_FILE
+systemctl restart mongod &>> $LOGS_FILE 
 validation $? "restart mongodb"
 
 total_execution_time
