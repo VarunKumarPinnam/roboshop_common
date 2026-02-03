@@ -12,7 +12,7 @@ MONGODB_HOST=mongodb.advidevops.online
 
 #--Log Directory---
     mkdir -p $LOGS_DIRECTORY
-echo " $Y Script started executing at : $(date '+%Y-%m-%d %H:%M:%S')" $N | tee -a $LOGS_FILE
+echo -e " $Y Script started executing at : $(date '+%Y-%m-%d %H:%M:%S')" $N | tee -a $LOGS_FILE
 
 #--ROOT User Check--
 check_root(){
