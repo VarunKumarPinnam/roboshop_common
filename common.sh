@@ -13,7 +13,7 @@ MYSQL=mysql.advidevops.online
 
 #--Log Directory---
     mkdir -p $LOGS_DIRECTORY
-echo -e " $YScript started executing at : $(date '+%Y-%m-%d %H:%M:%S')" $N | tee -a $LOGS_FILE
+echo -e "$YScript started executing at : $(date '+%Y-%m-%d %H:%M:%S')" $N | tee -a $LOGS_FILE
 
 #--ROOT User Check--
 check_root(){
