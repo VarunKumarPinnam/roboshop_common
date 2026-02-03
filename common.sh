@@ -59,8 +59,17 @@ java_setup(){
     validation $? "Moving and Renaming $app_name"
 }
 
+python_steup(){
+    dnf install python3 gcc python3-devel -y &>>$LOGS_FILE
+    validation $? "python installation"
+    
+    cd /app
+    pip3 install -r requirements.txt &>>$LOGS_FILE
+    validation $? "installing dependencies" 
+}
+
 app_setup(){
-#..creating system user
+ #..creating system user
     id roboshop &>>$LOGS_FILE
 
     if [ $? -ne 0 ]; then 
@@ -70,11 +79,11 @@ app_setup(){
         echo -e  "$Y User already exists, skipping this step $N"
     fi
 
-#..creating app directory
+ #..creating app directory
     mkdir -p /app
     validation $? "creating an app directory"
 
-#..downloading the files
+ #..downloading the files
     curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>$LOGS_FILE
     validation $? "Download $app_name code"
 
@@ -111,5 +120,5 @@ app_restart(){
 total_execution_time(){
     END_TIME=$(date +%s)
     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
-    echo -e "Execution time :$G $TOTAL_TIME seconds $N " | tee -a $LOGS_FILE
+    echo -e " Execution time :$G $TOTAL_TIME seconds $N " | tee -a $LOGS_FILE
 }
