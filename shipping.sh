@@ -22,5 +22,6 @@ if [ $? -ne 0 ];then
     validation $? "Data loaded to Mysql"
 else
     echo -e "$Y data is already loaded ..skipping this step $N"
+fi
 
 app_restart

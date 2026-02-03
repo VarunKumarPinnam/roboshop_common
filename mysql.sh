@@ -13,7 +13,7 @@ systemctl start mysqld
 validation $? "mysql service started"
 
 mysql_secure_installation --set-root-pass RoboShop@1
-validation $? "$Y root password has been updated.$N"
+validation $? "$Yroot password has been updated.$N"
 
 app_restart
 total_execution_time

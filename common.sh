@@ -13,7 +13,7 @@ MYSQL=mysql.advidevops.online
 
 #--Log Directory---
     mkdir -p $LOGS_DIRECTORY
-echo -e " $Y Script started executing at : $(date '+%Y-%m-%d %H:%M:%S')" $N | tee -a $LOGS_FILE
+echo -e " $YScript started executing at : $(date '+%Y-%m-%d %H:%M:%S')" $N | tee -a $LOGS_FILE
 
 #--ROOT User Check--
 check_root(){
@@ -56,7 +56,7 @@ java_setup(){
     validation $? "installing dependencies" 
 
     mv target/$app_name-1.0.jar $app_name.jar 
-    VALIDATE $? "Moving and Renaming $app_name"
+    validation $? "Moving and Renaming $app_name"
 }
 
 app_setup(){
