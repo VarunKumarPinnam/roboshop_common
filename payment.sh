@@ -1,4 +1,5 @@
 #!/bin/bash
+app_name=payment
 
 source ./common.sh
 
