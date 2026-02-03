@@ -33,6 +33,6 @@ validation(){
 
 total_execution_time(){
     END_TIME=$(date +%s)
-    TOTAL_TIME=$(( $END_TIME - $START_TIME))
+    TOTAL_TIME=$(( $END_TIME - $START_TIME ))
     echo -e "Execution time :$G $TOTAL_TIME seconds $N " | tee -a $LOGS_FILE
 }
