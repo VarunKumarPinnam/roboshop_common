@@ -8,7 +8,7 @@ Y="\e[33m"
 N="\e[0m"
 START_TIME=$(date +%s)
 
-echo "Script started executing at : $START_TIME" | tee -a $LOGS_FILE
+echo "Script started executing at : $(date '+%Y-%m-%d %H:%M:%S')" | tee -a $LOGS_FILE
 
 #--ROOT User Check--
 check_root(){
