@@ -10,6 +10,8 @@ N="\e[0m"
 START_TIME=$(date +%s)
 MONGODB_HOST=mongodb.advidevops.online
 
+#--Log Directory---
+    mkdir -p $LOGS_DIRECTORY
 echo "Script started executing at : $(date '+%Y-%m-%d %H:%M:%S')" | tee -a $LOGS_FILE
 
 #--ROOT User Check--
@@ -19,10 +21,6 @@ check_root(){
      exit 1
   fi
 }
-
-#--Log Setup---
-    mkdir -p $LOGS_DIRECTORY
-
 
 validation(){
   if [ $1 -ne 0 ]; then 
